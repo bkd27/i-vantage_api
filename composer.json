@@ -1,18 +1,18 @@
 {
-    "name": "/",
-    "description": "",
+    "name": "bkd27/i-vantage_api",
+    "description": "This is the iDirect iVantage API.",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "http://swagger.io",
+    "homepage": "http://bkd27.com",
     "license": "proprietary",
     "authors": [
         {
-            "name": "Swagger and contributors",
-            "homepage": "https://github.com/swagger-api/swagger-codegen"
+            "name": "Bharat Dhaker",
+            "homepage": "https://github.com/bkd27/i-vantage_api"
         }
     ],
     "require": {
