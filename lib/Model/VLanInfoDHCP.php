@@ -97,7 +97,7 @@ class VLanInfoDHCP implements ArrayAccess
         'primary_dns_addr' => 'PrimaryDnsAddr',
         'secondary_dns_addr' => 'SecondaryDnsAddr',
         'default_gw_addr' => 'DefaultGwAddr',
-        'relay_server' => 'RelayServer'
+        'relay_server' => 'RelayServer',
 		'client_addr_ranges' => 'ClientAddrRanges'
     ];
 
