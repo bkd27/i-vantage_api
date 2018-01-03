@@ -59,7 +59,8 @@ class VLanInfoDHCP implements ArrayAccess
         'primary_dns_addr' => 'string',
         'secondary_dns_addr' => 'string',
         'default_gw_addr' => 'string',
-        'relay_server' => 'string'
+        'relay_server' => 'string',
+		'client_addr_ranges'=> 'array',
     ];
 
     /**
@@ -72,7 +73,8 @@ class VLanInfoDHCP implements ArrayAccess
         'primary_dns_addr' => null,
         'secondary_dns_addr' => null,
         'default_gw_addr' => null,
-        'relay_server' => null
+        'relay_server' => null,
+		'client_addr_ranges' => null
     ];
 
     public static function swaggerTypes()
@@ -96,6 +98,7 @@ class VLanInfoDHCP implements ArrayAccess
         'secondary_dns_addr' => 'SecondaryDnsAddr',
         'default_gw_addr' => 'DefaultGwAddr',
         'relay_server' => 'RelayServer'
+		'client_addr_ranges' => 'ClientAddrRanges'
     ];
 
 
@@ -109,7 +112,8 @@ class VLanInfoDHCP implements ArrayAccess
         'primary_dns_addr' => 'setPrimaryDnsAddr',
         'secondary_dns_addr' => 'setSecondaryDnsAddr',
         'default_gw_addr' => 'setDefaultGwAddr',
-        'relay_server' => 'setRelayServer'
+        'relay_server' => 'setRelayServer',
+		'client_addr_ranges' => 'setClientAddrRanges'
     ];
 
 
@@ -123,7 +127,8 @@ class VLanInfoDHCP implements ArrayAccess
         'primary_dns_addr' => 'getPrimaryDnsAddr',
         'secondary_dns_addr' => 'getSecondaryDnsAddr',
         'default_gw_addr' => 'getDefaultGwAddr',
-        'relay_server' => 'getRelayServer'
+        'relay_server' => 'getRelayServer',
+		'client_addr_ranges' => 'getClientAddrRanges'
     ];
 
     public static function attributeMap()
@@ -163,6 +168,7 @@ class VLanInfoDHCP implements ArrayAccess
         $this->container['secondary_dns_addr'] = isset($data['secondary_dns_addr']) ? $data['secondary_dns_addr'] : null;
         $this->container['default_gw_addr'] = isset($data['default_gw_addr']) ? $data['default_gw_addr'] : null;
         $this->container['relay_server'] = isset($data['relay_server']) ? $data['relay_server'] : null;
+		$this->container['client_addr_ranges'] = isset($data['client_addr_ranges']) ? $data['client_addr_ranges'] : null;
     }
 
     /**
@@ -315,6 +321,27 @@ class VLanInfoDHCP implements ArrayAccess
 
         return $this;
     }
+	
+    /**
+     * Gets client_addr_ranges
+     * @return string
+     */
+    public function getClientAddrRanges()
+    {
+        return $this->container['client_addr_ranges'];
+    }
+
+    /**
+     * Sets client_addr_ranges
+     * @param string $client_addr_ranges
+     * @return $this
+     */
+    public function setClientAddrRanges($client_addr_ranges)
+    {
+        $this->container['client_addr_ranges'] = $client_addr_ranges;
+
+        return $this;
+    }	
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
