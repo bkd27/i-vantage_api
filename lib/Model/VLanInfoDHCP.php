@@ -60,7 +60,7 @@ class VLanInfoDHCP implements ArrayAccess
         'secondary_dns_addr' => 'string',
         'default_gw_addr' => 'string',
         'relay_server' => 'string',
-		'client_addr_ranges'=> '\Swagger\Client\Model\VLanInfoDHCPClientAddrRanges',
+		'client_addr_ranges'=> '\Swagger\Client\Model\VLanInfoDHCPClientAddrRanges[]',
     ];
 
     /**
