@@ -115,7 +115,7 @@ class Remote implements ArrayAccess
         'roaming_instances' => '\Swagger\Client\Model\RoamingInstance[]',
         'switch_ports' => '\Swagger\Client\Model\SwitchPort[]',
         'v_lans' => '\Swagger\Client\Model\VLanInfo[]',
-		'discrete_ports' => '\Swagger\Client\Model\DiscretePorts'
+		'discrete_ports' => '\Swagger\Client\Model\DiscretePorts[]'
     ];
 
     /**
