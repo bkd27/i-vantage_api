@@ -114,7 +114,8 @@ class Remote implements ArrayAccess
         'custom_keys' => '\Swagger\Client\Model\RemoteCustomKeys',
         'roaming_instances' => '\Swagger\Client\Model\RoamingInstance[]',
         'switch_ports' => '\Swagger\Client\Model\SwitchPort[]',
-        'v_lans' => '\Swagger\Client\Model\VLanInfo[]'
+        'v_lans' => '\Swagger\Client\Model\VLanInfo[]',
+		'discrete_ports' => '\Swagger\Client\Model\DiscretePorts'
     ];
 
     /**
@@ -182,7 +183,8 @@ class Remote implements ArrayAccess
         'custom_keys' => null,
         'roaming_instances' => null,
         'switch_ports' => null,
-        'v_lans' => null
+        'v_lans' => null,
+		'discrete_ports'=> null,
     ];
 
     public static function swaggerTypes()
@@ -260,7 +262,8 @@ class Remote implements ArrayAccess
         'custom_keys' => 'CustomKeys',
         'roaming_instances' => 'RoamingInstances',
         'switch_ports' => 'SwitchPorts',
-        'v_lans' => 'VLans'
+        'v_lans' => 'VLans',
+		'discrete_ports'=> 'DiscretePorts',
     ];
 
 
@@ -329,7 +332,8 @@ class Remote implements ArrayAccess
         'custom_keys' => 'setCustomKeys',
         'roaming_instances' => 'setRoamingInstances',
         'switch_ports' => 'setSwitchPorts',
-        'v_lans' => 'setVLans'
+        'v_lans' => 'setVLans',
+		'discrete_ports'=>'setDiscretePorts',
     ];
 
 
@@ -398,7 +402,8 @@ class Remote implements ArrayAccess
         'custom_keys' => 'getCustomKeys',
         'roaming_instances' => 'getRoamingInstances',
         'switch_ports' => 'getSwitchPorts',
-        'v_lans' => 'getVLans'
+        'v_lans' => 'getVLans',
+		'discrete_ports'=>'getDiscretePorts'
     ];
 
     public static function attributeMap()
@@ -493,6 +498,8 @@ class Remote implements ArrayAccess
         $this->container['roaming_instances'] = isset($data['roaming_instances']) ? $data['roaming_instances'] : null;
         $this->container['switch_ports'] = isset($data['switch_ports']) ? $data['switch_ports'] : null;
         $this->container['v_lans'] = isset($data['v_lans']) ? $data['v_lans'] : null;
+		$this->container['discrete_ports'] = isset($data['discrete_ports']) ? $data['discrete_ports'] : null;
+		
     }
 
     /**
@@ -1800,6 +1807,29 @@ class Remote implements ArrayAccess
 
         return $this;
     }
+	
+    /**
+     * Gets discrete_ports
+     * @return \Swagger\Client\Model\DiscretePorts
+     */
+    public function getDiscretePorts()
+    {
+        return $this->container['discrete_ports'];
+    }
+
+    /**
+     * Sets discrete_ports
+     * @param \Swagger\Client\Model\DiscretePorts $discrete_ports
+     * @return $this
+     */
+    public function setDiscretePorts($discrete_ports)
+    {
+        $this->container['discrete_ports'] = $discrete_ports;
+
+        return $this;
+    }	
+	
+	
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
