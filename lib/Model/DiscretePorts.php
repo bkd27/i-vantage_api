@@ -55,14 +55,14 @@ class DiscretePorts implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'port_number' => 'int',
-        'enabled' => 'boolean',
+        'enabled' => 'bool',
         'speed' => 'string',
         'duplex' => 'string',
         'mode' => 'string',
         'port_ethertype1' => 'string',
         'port_ethertype2' => 'string',
         'native_v_lan_id' => 'string',
-        'svn_ids' => 'array',
+        'svn_ids' => 'string[]',
 
     ];
 

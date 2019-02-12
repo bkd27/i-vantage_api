@@ -56,6 +56,7 @@ class ApplyChangesRequest implements ArrayAccess
     protected static $swaggerTypes = [
         'transport' => 'string',
         'hub_side' => 'bool',
+		'remote_side'=>'bool',
         'reset' => 'bool'
     ];
 
@@ -66,6 +67,7 @@ class ApplyChangesRequest implements ArrayAccess
     protected static $swaggerFormats = [
         'transport' => null,
         'hub_side' => null,
+		'remote_side'=>null,
         'reset' => null
     ];
 
@@ -86,6 +88,7 @@ class ApplyChangesRequest implements ArrayAccess
     protected static $attributeMap = [
         'transport' => 'Transport',
         'hub_side' => 'HubSide',
+		'remote_side'=>'RemoteSide',
         'reset' => 'Reset'
     ];
 
@@ -97,6 +100,7 @@ class ApplyChangesRequest implements ArrayAccess
     protected static $setters = [
         'transport' => 'setTransport',
         'hub_side' => 'setHubSide',
+		'remote_side'=> 'setRemoteSide',
         'reset' => 'setReset'
     ];
 
@@ -108,6 +112,7 @@ class ApplyChangesRequest implements ArrayAccess
     protected static $getters = [
         'transport' => 'getTransport',
         'hub_side' => 'getHubSide',
+		'remote_side'=>'getRemoteSide',
         'reset' => 'getReset'
     ];
 
@@ -144,6 +149,8 @@ class ApplyChangesRequest implements ArrayAccess
     {
         $this->container['transport'] = isset($data['transport']) ? $data['transport'] : null;
         $this->container['hub_side'] = isset($data['hub_side']) ? $data['hub_side'] : null;
+		$this->container['remote_side'] = isset($data['remote_side']) ? $data['remote_side'] : null;
+		
         $this->container['reset'] = isset($data['reset']) ? $data['reset'] : null;
     }
 
@@ -194,6 +201,27 @@ class ApplyChangesRequest implements ArrayAccess
     }
 
     /**
+     * Gets remote_side
+     * @return bool
+     */
+    public function getRemoteSide()
+    {
+        return $this->container['remote_side'];
+    }
+
+    /**
+     * Sets remote_side
+     * @param bool $remote_side
+     * @return $this
+     */
+    public function setRemoteSide($remote_side)
+    {
+        $this->container['remote_side'] = $remote_side;
+
+        return $this;
+    }
+
+    /**
      * Gets hub_side
      * @return bool
      */
@@ -213,7 +241,6 @@ class ApplyChangesRequest implements ArrayAccess
 
         return $this;
     }
-
     /**
      * Gets reset
      * @return bool
