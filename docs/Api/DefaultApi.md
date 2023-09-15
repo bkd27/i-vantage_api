@@ -42,11 +42,8 @@ Method | HTTP request | Description
 [**networkNetworkIdGet**](DefaultApi.md#networkNetworkIdGet) | **GET** /network/{networkId} | 
 [**networkNetworkIdPatch**](DefaultApi.md#networkNetworkIdPatch) | **PATCH** /network/{networkId} | 
 [**networkPost**](DefaultApi.md#networkPost) | **POST** /network | 
-[**protocolprocessorGet**](DefaultApi.md#protocolprocessorGet) | **GET** /protocolprocessor | 
-[**protocolprocessorPost**](DefaultApi.md#protocolprocessorPost) | **POST** /protocolprocessor | 
-[**protocolprocessorProtocolprocessorIdDelete**](DefaultApi.md#protocolprocessorProtocolprocessorIdDelete) | **DELETE** /protocolprocessor/{protocolprocessorId} | 
-[**protocolprocessorProtocolprocessorIdGet**](DefaultApi.md#protocolprocessorProtocolprocessorIdGet) | **GET** /protocolprocessor/{protocolprocessorId} | 
-[**protocolprocessorProtocolprocessorIdPatch**](DefaultApi.md#protocolprocessorProtocolprocessorIdPatch) | **PATCH** /protocolprocessor/{protocolprocessorId} | 
+[**reflectorGet**](DefaultApi.md#reflectorGet) | **GET** /reflector | 
+[**reflectorReflectorIdGet**](DefaultApi.md#reflectorReflectorIdGet) | **GET** /reflector/{reflectorId} | 
 [**remoteGet**](DefaultApi.md#remoteGet) | **GET** /remote | 
 [**remotePost**](DefaultApi.md#remotePost) | **POST** /remote | 
 [**remoteRemoteIdAddRoamingInstancePost**](DefaultApi.md#remoteRemoteIdAddRoamingInstancePost) | **POST** /remote/{remoteId}/add_roaming_instance | 
@@ -97,18 +94,25 @@ Returns the applicationservicegroup with ID = applicationservicegroupId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $applicationservicegroup_id = 56; // int | ID of the applicationservicegroup
 
 try {
-    $result = $api_instance->applicationservicegroupApplicationservicegroupIdGet($applicationservicegroup_id);
+    $result = $apiInstance->applicationservicegroupApplicationservicegroupIdGet($applicationservicegroup_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->applicationservicegroupApplicationservicegroupIdGet: ', $e->getMessage(), PHP_EOL;
@@ -150,19 +154,26 @@ Updates the applicationservicegroup and returns the updated applicationservicegr
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $applicationservicegroup_id = 56; // int | ID of the applicationservicegroup
 $application_service_group = new \Swagger\Client\Model\ApplicationServiceGroup(); // \Swagger\Client\Model\ApplicationServiceGroup | The applicationservicegroup JSON you want to update the applicationservicegroup with
 
 try {
-    $result = $api_instance->applicationservicegroupApplicationservicegroupIdPatch($applicationservicegroup_id, $application_service_group);
+    $result = $apiInstance->applicationservicegroupApplicationservicegroupIdPatch($applicationservicegroup_id, $application_service_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->applicationservicegroupApplicationservicegroupIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -205,17 +216,24 @@ List all applicationservicegroups
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->applicationservicegroupGet();
+    $result = $apiInstance->applicationservicegroupGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->applicationservicegroupGet: ', $e->getMessage(), PHP_EOL;
@@ -254,14 +272,21 @@ Login user and receive a session token in the header, or Logout existing session
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = "user_example"; // string | The username of the user
 $password = "password_example"; // string | The password of the user
 $logout = "logout_example"; // string | If included will logout and delete session
@@ -269,7 +294,7 @@ $success = "success_example"; // string | Location to redirect to upon successfu
 $fail = "fail_example"; // string | Location to redirect to upon failed login or logout
 
 try {
-    $result = $api_instance->authorizePost($user, $password, $logout, $success, $fail);
+    $result = $apiInstance->authorizePost($user, $password, $logout, $success, $fail);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->authorizePost: ', $e->getMessage(), PHP_EOL;
@@ -315,18 +340,25 @@ Returns the buc with ID = bucId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $buc_id = 56; // int | ID of the buc
 
 try {
-    $result = $api_instance->bucBucIdGet($buc_id);
+    $result = $apiInstance->bucBucIdGet($buc_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->bucBucIdGet: ', $e->getMessage(), PHP_EOL;
@@ -368,17 +400,24 @@ List all bucs
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->bucGet();
+    $result = $apiInstance->bucGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->bucGet: ', $e->getMessage(), PHP_EOL;
@@ -417,18 +456,25 @@ Deletes the carrier with ID = carrierId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $carrier_id = 56; // int | ID of the carrier
 
 try {
-    $api_instance->carrierCarrierIdDelete($carrier_id);
+    $apiInstance->carrierCarrierIdDelete($carrier_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->carrierCarrierIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -469,18 +515,25 @@ Returns the carrier with ID = carrierId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $carrier_id = 56; // int | ID of the carrier
 
 try {
-    $result = $api_instance->carrierCarrierIdGet($carrier_id);
+    $result = $apiInstance->carrierCarrierIdGet($carrier_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->carrierCarrierIdGet: ', $e->getMessage(), PHP_EOL;
@@ -522,19 +575,26 @@ Updates the carrier and returns the updated carrier. Note&amp;#58; this only req
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $carrier_id = 56; // int | ID of the carrier
 $carrier = new \Swagger\Client\Model\Carrier(); // \Swagger\Client\Model\Carrier | The carrier JSON you want to update the carrier with
 
 try {
-    $result = $api_instance->carrierCarrierIdPatch($carrier_id, $carrier);
+    $result = $apiInstance->carrierCarrierIdPatch($carrier_id, $carrier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->carrierCarrierIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -577,17 +637,24 @@ List all carriers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->carrierGet();
+    $result = $apiInstance->carrierGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->carrierGet: ', $e->getMessage(), PHP_EOL;
@@ -626,18 +693,25 @@ Creates the Carrier
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $carrier = new \Swagger\Client\Model\Carrier(); // \Swagger\Client\Model\Carrier | The carrier JSON you want to post
 
 try {
-    $result = $api_instance->carrierPost($carrier);
+    $result = $apiInstance->carrierPost($carrier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->carrierPost: ', $e->getMessage(), PHP_EOL;
@@ -679,18 +753,25 @@ Deletes the downconverter with ID = downconverterId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $downconverter_id = 56; // int | ID of the downconverter
 
 try {
-    $api_instance->downconverterDownconverterIdDelete($downconverter_id);
+    $apiInstance->downconverterDownconverterIdDelete($downconverter_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->downconverterDownconverterIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -731,18 +812,25 @@ Returns the downconverter with ID = downconverterId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $downconverter_id = 56; // int | ID of the downconverter
 
 try {
-    $result = $api_instance->downconverterDownconverterIdGet($downconverter_id);
+    $result = $apiInstance->downconverterDownconverterIdGet($downconverter_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->downconverterDownconverterIdGet: ', $e->getMessage(), PHP_EOL;
@@ -784,19 +872,26 @@ Updates the downconverter and returns the updated downconverter. Note&amp;#58; t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $downconverter_id = 56; // int | ID of the downconverter
 $down_converter = new \Swagger\Client\Model\DownConverter(); // \Swagger\Client\Model\DownConverter | The downconverter JSON you want to update the downconverter with
 
 try {
-    $result = $api_instance->downconverterDownconverterIdPatch($downconverter_id, $down_converter);
+    $result = $apiInstance->downconverterDownconverterIdPatch($downconverter_id, $down_converter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->downconverterDownconverterIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -839,17 +934,24 @@ List all downconverters
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->downconverterGet();
+    $result = $apiInstance->downconverterGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->downconverterGet: ', $e->getMessage(), PHP_EOL;
@@ -888,18 +990,25 @@ Creates the DownConverter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $down_converter = new \Swagger\Client\Model\DownConverter(); // \Swagger\Client\Model\DownConverter | The downconverter JSON you want to post
 
 try {
-    $result = $api_instance->downconverterPost($down_converter);
+    $result = $apiInstance->downconverterPost($down_converter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->downconverterPost: ', $e->getMessage(), PHP_EOL;
@@ -941,17 +1050,24 @@ List all hubrfts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->hubrftGet();
+    $result = $apiInstance->hubrftGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->hubrftGet: ', $e->getMessage(), PHP_EOL;
@@ -990,18 +1106,25 @@ Deletes the hubrft with ID = hubrftId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $hubrft_id = 56; // int | ID of the hubrft
 
 try {
-    $api_instance->hubrftHubrftIdDelete($hubrft_id);
+    $apiInstance->hubrftHubrftIdDelete($hubrft_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->hubrftHubrftIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -1042,18 +1165,25 @@ Returns the hubrft with ID = hubrftId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $hubrft_id = 56; // int | ID of the hubrft
 
 try {
-    $result = $api_instance->hubrftHubrftIdGet($hubrft_id);
+    $result = $apiInstance->hubrftHubrftIdGet($hubrft_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->hubrftHubrftIdGet: ', $e->getMessage(), PHP_EOL;
@@ -1095,19 +1225,26 @@ Updates the hubrft and returns the updated hubrft. Note&amp;#58; this only requi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $hubrft_id = 56; // int | ID of the hubrft
 $hub_rft = new \Swagger\Client\Model\HubRFT(); // \Swagger\Client\Model\HubRFT | The hubrft JSON you want to update the hubrft with
 
 try {
-    $result = $api_instance->hubrftHubrftIdPatch($hubrft_id, $hub_rft);
+    $result = $apiInstance->hubrftHubrftIdPatch($hubrft_id, $hub_rft);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->hubrftHubrftIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1150,18 +1287,25 @@ Creates the HubRFT
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $hub_rft = new \Swagger\Client\Model\HubRFT(); // \Swagger\Client\Model\HubRFT | The hubrft JSON you want to post
 
 try {
-    $result = $api_instance->hubrftPost($hub_rft);
+    $result = $apiInstance->hubrftPost($hub_rft);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->hubrftPost: ', $e->getMessage(), PHP_EOL;
@@ -1203,17 +1347,24 @@ List all inroutegroups
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->inroutegroupGet();
+    $result = $apiInstance->inroutegroupGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->inroutegroupGet: ', $e->getMessage(), PHP_EOL;
@@ -1252,18 +1403,25 @@ Deletes the inroutegroup with ID = inroutegroupId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $inroutegroup_id = 56; // int | ID of the inroutegroup
 
 try {
-    $api_instance->inroutegroupInroutegroupIdDelete($inroutegroup_id);
+    $apiInstance->inroutegroupInroutegroupIdDelete($inroutegroup_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->inroutegroupInroutegroupIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -1304,18 +1462,25 @@ Returns the inroutegroup with ID = inroutegroupId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $inroutegroup_id = 56; // int | ID of the inroutegroup
 
 try {
-    $result = $api_instance->inroutegroupInroutegroupIdGet($inroutegroup_id);
+    $result = $apiInstance->inroutegroupInroutegroupIdGet($inroutegroup_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->inroutegroupInroutegroupIdGet: ', $e->getMessage(), PHP_EOL;
@@ -1357,19 +1522,26 @@ Updates the inroutegroup and returns the updated inroutegroup. Note&amp;#58; thi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $inroutegroup_id = 56; // int | ID of the inroutegroup
 $inroute_group = new \Swagger\Client\Model\InrouteGroup(); // \Swagger\Client\Model\InrouteGroup | The inroutegroup JSON you want to update the inroutegroup with
 
 try {
-    $result = $api_instance->inroutegroupInroutegroupIdPatch($inroutegroup_id, $inroute_group);
+    $result = $apiInstance->inroutegroupInroutegroupIdPatch($inroutegroup_id, $inroute_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->inroutegroupInroutegroupIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1412,18 +1584,25 @@ Creates the InrouteGroup
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $inroute_group = new \Swagger\Client\Model\InrouteGroup(); // \Swagger\Client\Model\InrouteGroup | The inroutegroup JSON you want to post
 
 try {
-    $result = $api_instance->inroutegroupPost($inroute_group);
+    $result = $apiInstance->inroutegroupPost($inroute_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->inroutegroupPost: ', $e->getMessage(), PHP_EOL;
@@ -1465,17 +1644,24 @@ List all linecards
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->linecardGet();
+    $result = $apiInstance->linecardGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->linecardGet: ', $e->getMessage(), PHP_EOL;
@@ -1514,18 +1700,25 @@ Deletes the linecard with ID = linecardId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $linecard_id = 56; // int | ID of the linecard
 
 try {
-    $api_instance->linecardLinecardIdDelete($linecard_id);
+    $apiInstance->linecardLinecardIdDelete($linecard_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->linecardLinecardIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -1566,18 +1759,25 @@ Returns the linecard with ID = linecardId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $linecard_id = 56; // int | ID of the linecard
 
 try {
-    $result = $api_instance->linecardLinecardIdGet($linecard_id);
+    $result = $apiInstance->linecardLinecardIdGet($linecard_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->linecardLinecardIdGet: ', $e->getMessage(), PHP_EOL;
@@ -1619,19 +1819,26 @@ Updates the linecard and returns the updated linecard. Note&amp;#58; this only r
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $linecard_id = 56; // int | ID of the linecard
 $linecard = new \Swagger\Client\Model\Linecard(); // \Swagger\Client\Model\Linecard | The linecard JSON you want to update the linecard with
 
 try {
-    $result = $api_instance->linecardLinecardIdPatch($linecard_id, $linecard);
+    $result = $apiInstance->linecardLinecardIdPatch($linecard_id, $linecard);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->linecardLinecardIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1674,18 +1881,25 @@ Creates the Linecard
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $linecard = new \Swagger\Client\Model\Linecard(); // \Swagger\Client\Model\Linecard | The linecard JSON you want to post
 
 try {
-    $result = $api_instance->linecardPost($linecard);
+    $result = $apiInstance->linecardPost($linecard);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->linecardPost: ', $e->getMessage(), PHP_EOL;
@@ -1727,17 +1941,24 @@ List all lnbs
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->lnbGet();
+    $result = $apiInstance->lnbGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->lnbGet: ', $e->getMessage(), PHP_EOL;
@@ -1776,18 +1997,25 @@ Returns the lnb with ID = lnbId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $lnb_id = 56; // int | ID of the lnb
 
 try {
-    $result = $api_instance->lnbLnbIdGet($lnb_id);
+    $result = $apiInstance->lnbLnbIdGet($lnb_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->lnbLnbIdGet: ', $e->getMessage(), PHP_EOL;
@@ -1829,17 +2057,24 @@ List all networks
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->networkGet();
+    $result = $apiInstance->networkGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->networkGet: ', $e->getMessage(), PHP_EOL;
@@ -1878,18 +2113,25 @@ Deletes the network with ID = networkId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $network_id = 56; // int | ID of the network
 
 try {
-    $api_instance->networkNetworkIdDelete($network_id);
+    $apiInstance->networkNetworkIdDelete($network_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->networkNetworkIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -1930,18 +2172,25 @@ Returns the network with ID = networkId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $network_id = 56; // int | ID of the network
 
 try {
-    $result = $api_instance->networkNetworkIdGet($network_id);
+    $result = $apiInstance->networkNetworkIdGet($network_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->networkNetworkIdGet: ', $e->getMessage(), PHP_EOL;
@@ -1983,19 +2232,26 @@ Updates the network and returns the updated network. Note&amp;#58; this only req
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $network_id = 56; // int | ID of the network
 $network = new \Swagger\Client\Model\Network(); // \Swagger\Client\Model\Network | The network JSON you want to update the network with
 
 try {
-    $result = $api_instance->networkNetworkIdPatch($network_id, $network);
+    $result = $apiInstance->networkNetworkIdPatch($network_id, $network);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->networkNetworkIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -2038,18 +2294,25 @@ Creates the Network
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $network = new \Swagger\Client\Model\Network(); // \Swagger\Client\Model\Network | The network JSON you want to post
 
 try {
-    $result = $api_instance->networkPost($network);
+    $result = $apiInstance->networkPost($network);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->networkPost: ', $e->getMessage(), PHP_EOL;
@@ -2078,12 +2341,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **protocolprocessorGet**
-> \Swagger\Client\Model\ProtocolProcessorListResponse protocolprocessorGet()
+# **reflectorGet**
+> \Swagger\Client\Model\ReflectorListResponse reflectorGet()
 
 
 
-List all protocolprocessors
+List all reflectors
 
 ### Example
 ```php
@@ -2091,20 +2354,27 @@ List all protocolprocessors
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->protocolprocessorGet();
+    $result = $apiInstance->reflectorGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->protocolprocessorGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->reflectorGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -2114,7 +2384,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\ProtocolProcessorListResponse**](../Model/ProtocolProcessorListResponse.md)
+[**\Swagger\Client\Model\ReflectorListResponse**](../Model/ReflectorListResponse.md)
 
 ### Authorization
 
@@ -2127,12 +2397,12 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **protocolprocessorPost**
-> \Swagger\Client\Model\ProtocolProcessorResponse protocolprocessorPost($protocol_processor)
+# **reflectorReflectorIdGet**
+> \Swagger\Client\Model\ReflectorResponse reflectorReflectorIdGet($reflector_id)
 
 
 
-Creates the ProtocolProcessor
+Returns the reflector with ID = reflectorId
 
 ### Example
 ```php
@@ -2140,21 +2410,28 @@ Creates the ProtocolProcessor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
-$protocol_processor = new \Swagger\Client\Model\ProtocolProcessor(); // \Swagger\Client\Model\ProtocolProcessor | The protocolprocessor JSON you want to post
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$reflector_id = 56; // int | ID of the reflector
 
 try {
-    $result = $api_instance->protocolprocessorPost($protocol_processor);
+    $result = $apiInstance->reflectorReflectorIdGet($reflector_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->protocolprocessorPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->reflectorReflectorIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -2163,171 +2440,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **protocol_processor** | [**\Swagger\Client\Model\ProtocolProcessor**](../Model/ProtocolProcessor.md)| The protocolprocessor JSON you want to post |
+ **reflector_id** | **int**| ID of the reflector |
 
 ### Return type
 
-[**\Swagger\Client\Model\ProtocolProcessorResponse**](../Model/ProtocolProcessorResponse.md)
-
-### Authorization
-
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/xml
- - **Accept**: application/json, text/html
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **protocolprocessorProtocolprocessorIdDelete**
-> protocolprocessorProtocolprocessorIdDelete($protocolprocessor_id)
-
-
-
-Deletes the protocolprocessor with ID = protocolprocessorId
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\DefaultApi();
-$protocolprocessor_id = 56; // int | ID of the protocolprocessor
-
-try {
-    $api_instance->protocolprocessorProtocolprocessorIdDelete($protocolprocessor_id);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->protocolprocessorProtocolprocessorIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **protocolprocessor_id** | **int**| ID of the protocolprocessor |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/xml
- - **Accept**: application/json, text/html
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **protocolprocessorProtocolprocessorIdGet**
-> \Swagger\Client\Model\ProtocolProcessorResponse protocolprocessorProtocolprocessorIdGet($protocolprocessor_id)
-
-
-
-Returns the protocolprocessor with ID = protocolprocessorId
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\DefaultApi();
-$protocolprocessor_id = 56; // int | ID of the protocolprocessor
-
-try {
-    $result = $api_instance->protocolprocessorProtocolprocessorIdGet($protocolprocessor_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->protocolprocessorProtocolprocessorIdGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **protocolprocessor_id** | **int**| ID of the protocolprocessor |
-
-### Return type
-
-[**\Swagger\Client\Model\ProtocolProcessorResponse**](../Model/ProtocolProcessorResponse.md)
-
-### Authorization
-
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/xml
- - **Accept**: application/json, text/html
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **protocolprocessorProtocolprocessorIdPatch**
-> \Swagger\Client\Model\ProtocolProcessorResponse protocolprocessorProtocolprocessorIdPatch($protocolprocessor_id, $protocol_processor)
-
-
-
-Updates the protocolprocessor and returns the updated protocolprocessor. Note&amp;#58; this only requires a partial list of properties
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\DefaultApi();
-$protocolprocessor_id = 56; // int | ID of the protocolprocessor
-$protocol_processor = new \Swagger\Client\Model\ProtocolProcessor(); // \Swagger\Client\Model\ProtocolProcessor | The protocolprocessor JSON you want to update the protocolprocessor with
-
-try {
-    $result = $api_instance->protocolprocessorProtocolprocessorIdPatch($protocolprocessor_id, $protocol_processor);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->protocolprocessorProtocolprocessorIdPatch: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **protocolprocessor_id** | **int**| ID of the protocolprocessor |
- **protocol_processor** | [**\Swagger\Client\Model\ProtocolProcessor**](../Model/ProtocolProcessor.md)| The protocolprocessor JSON you want to update the protocolprocessor with |
-
-### Return type
-
-[**\Swagger\Client\Model\ProtocolProcessorResponse**](../Model/ProtocolProcessorResponse.md)
+[**\Swagger\Client\Model\ReflectorResponse**](../Model/ReflectorResponse.md)
 
 ### Authorization
 
@@ -2353,14 +2470,21 @@ List all remotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 56; // int | The ID of the remote you would like to match
 $parent_id = 56; // int | The ParentID of the remotes you would like to match
 $network_id = 56; // int | The NetworkID of the remotes you would like to match
@@ -2374,7 +2498,7 @@ $scpc_peer_id = 56; // int | The InrouteGroupID of the remotes you would like to
 $active = true; // bool | A boolean flag indicating whether to retrieve remotes that are active or inactive
 
 try {
-    $result = $api_instance->remoteGet($id, $parent_id, $network_id, $inroute_group_id, $name, $sn, $did, $model_type, $is_scpc, $scpc_peer_id, $active);
+    $result = $apiInstance->remoteGet($id, $parent_id, $network_id, $inroute_group_id, $name, $sn, $did, $model_type, $is_scpc, $scpc_peer_id, $active);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteGet: ', $e->getMessage(), PHP_EOL;
@@ -2426,18 +2550,25 @@ Creates the Remote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote = new \Swagger\Client\Model\Remote(); // \Swagger\Client\Model\Remote | The remote JSON you want to post
 
 try {
-    $result = $api_instance->remotePost($remote);
+    $result = $apiInstance->remotePost($remote);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remotePost: ', $e->getMessage(), PHP_EOL;
@@ -2479,19 +2610,26 @@ Create a Roaming Instance of a Remote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote = new \Swagger\Client\Model\RoamingRemote(); // \Swagger\Client\Model\RoamingRemote | The roaming remote JSON you want to post
 $remote_id = 56; // int | The id of the remote to send the probe command to.
 
 try {
-    $result = $api_instance->remoteRemoteIdAddRoamingInstancePost($remote, $remote_id);
+    $result = $apiInstance->remoteRemoteIdAddRoamingInstancePost($remote, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdAddRoamingInstancePost: ', $e->getMessage(), PHP_EOL;
@@ -2534,19 +2672,26 @@ Apply Configuration Changes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to apply changes to.
 $parameters = new \Swagger\Client\Model\ApplyChangesRequest(); // \Swagger\Client\Model\ApplyChangesRequest | The settings JSON you want to use. Transport can be udp or tcp.
 
 try {
-    $result = $api_instance->remoteRemoteIdApplyChangesPatch($remote_id, $parameters);
+    $result = $apiInstance->remoteRemoteIdApplyChangesPatch($remote_id, $parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdApplyChangesPatch: ', $e->getMessage(), PHP_EOL;
@@ -2589,18 +2734,25 @@ Deletes the remote with ID = remoteId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | ID of the remote
 
 try {
-    $api_instance->remoteRemoteIdDelete($remote_id);
+    $apiInstance->remoteRemoteIdDelete($remote_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -2641,18 +2793,25 @@ Returns the remote with ID = remoteId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | ID of the remote
 
 try {
-    $result = $api_instance->remoteRemoteIdGet($remote_id);
+    $result = $apiInstance->remoteRemoteIdGet($remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdGet: ', $e->getMessage(), PHP_EOL;
@@ -2694,19 +2853,26 @@ Updates the remote and returns the updated remote. Note&amp;#58; this only requi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | ID of the remote
 $remote = new \Swagger\Client\Model\Remote(); // \Swagger\Client\Model\Remote | The remote JSON you want to update the remote with
 
 try {
-    $result = $api_instance->remoteRemoteIdPatch($remote_id, $remote);
+    $result = $apiInstance->remoteRemoteIdPatch($remote_id, $remote);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -2749,20 +2915,27 @@ Retrieve Options Files for the remote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to retrieve the options file for.
 $type = "type_example"; // string | The type of options file, HubSide or RmtSide.
 $version = "version_example"; // string | The version of options file, Active or Saved.
 
 try {
-    $result = $api_instance->remoteRemoteIdRawOptionsfileGet($remote_id, $type, $version);
+    $result = $apiInstance->remoteRemoteIdRawOptionsfileGet($remote_id, $type, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdRawOptionsfileGet: ', $e->getMessage(), PHP_EOL;
@@ -2806,18 +2979,25 @@ Send a remote probe command to the Remote with the given ID commanding it to per
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to send the stop command to.
 
 try {
-    $api_instance->remoteRemoteIdResetPatch($remote_id);
+    $apiInstance->remoteRemoteIdResetPatch($remote_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdResetPatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -2858,18 +3038,25 @@ Query Configuration State
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to check the status of.
 
 try {
-    $result = $api_instance->remoteRemoteIdStatusGet($remote_id);
+    $result = $apiInstance->remoteRemoteIdStatusGet($remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdStatusGet: ', $e->getMessage(), PHP_EOL;
@@ -2911,18 +3098,25 @@ Send a remote probe command to the Remote with the given ID commanding it to sto
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to send the stop command to.
 
 try {
-    $api_instance->remoteRemoteIdStopCwPnPatch($remote_id);
+    $apiInstance->remoteRemoteIdStopCwPnPatch($remote_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdStopCwPnPatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -2963,19 +3157,26 @@ Send a remote probe command to the Remote with the given ID commanding it to tra
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to send the probe command to.
 $cw = new \Swagger\Client\Model\CW(); // \Swagger\Client\Model\CW | The CW settings JSON you want to use for the command.
 
 try {
-    $api_instance->remoteRemoteIdTxCwPatch($remote_id, $cw);
+    $apiInstance->remoteRemoteIdTxCwPatch($remote_id, $cw);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdTxCwPatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -3017,19 +3218,26 @@ Send a remote probe command to the Remote with the given ID commanding it to tra
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remote_id = 56; // int | The id of the remote to send the probe command to.
 $pn = new \Swagger\Client\Model\PN(); // \Swagger\Client\Model\PN | The PN settings JSON you want to use for the command.  Type Modulation values can be 8PSK, QPSK or BPSK.
 
 try {
-    $api_instance->remoteRemoteIdTxPnPatch($remote_id, $pn);
+    $apiInstance->remoteRemoteIdTxPnPatch($remote_id, $pn);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteRemoteIdTxPnPatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -3071,17 +3279,24 @@ List all remoteservicegroups
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->remoteservicegroupGet();
+    $result = $apiInstance->remoteservicegroupGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteservicegroupGet: ', $e->getMessage(), PHP_EOL;
@@ -3120,18 +3335,25 @@ Returns the remoteservicegroup with ID = remoteservicegroupId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remoteservicegroup_id = 56; // int | ID of the remoteservicegroup
 
 try {
-    $result = $api_instance->remoteservicegroupRemoteservicegroupIdGet($remoteservicegroup_id);
+    $result = $apiInstance->remoteservicegroupRemoteservicegroupIdGet($remoteservicegroup_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteservicegroupRemoteservicegroupIdGet: ', $e->getMessage(), PHP_EOL;
@@ -3173,19 +3395,26 @@ Updates the remoteservicegroup and returns the updated remoteservicegroup. Note&
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $remoteservicegroup_id = 56; // int | ID of the remoteservicegroup
 $remote_service_group = new \Swagger\Client\Model\RemoteServiceGroup(); // \Swagger\Client\Model\RemoteServiceGroup | The remoteservicegroup JSON you want to update the remoteservicegroup with
 
 try {
-    $result = $api_instance->remoteservicegroupRemoteservicegroupIdPatch($remoteservicegroup_id, $remote_service_group);
+    $result = $apiInstance->remoteservicegroupRemoteservicegroupIdPatch($remoteservicegroup_id, $remote_service_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->remoteservicegroupRemoteservicegroupIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -3228,17 +3457,24 @@ List all spacecrafts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->spacecraftGet();
+    $result = $apiInstance->spacecraftGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->spacecraftGet: ', $e->getMessage(), PHP_EOL;
@@ -3277,18 +3513,25 @@ Creates the Spacecraft
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $spacecraft = new \Swagger\Client\Model\Spacecraft(); // \Swagger\Client\Model\Spacecraft | The spacecraft JSON you want to post
 
 try {
-    $result = $api_instance->spacecraftPost($spacecraft);
+    $result = $apiInstance->spacecraftPost($spacecraft);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->spacecraftPost: ', $e->getMessage(), PHP_EOL;
@@ -3330,18 +3573,25 @@ Deletes the spacecraft with ID = spacecraftId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $spacecraft_id = 56; // int | ID of the spacecraft
 
 try {
-    $api_instance->spacecraftSpacecraftIdDelete($spacecraft_id);
+    $apiInstance->spacecraftSpacecraftIdDelete($spacecraft_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->spacecraftSpacecraftIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -3382,18 +3632,25 @@ Returns the spacecraft with ID = spacecraftId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $spacecraft_id = 56; // int | ID of the spacecraft
 
 try {
-    $result = $api_instance->spacecraftSpacecraftIdGet($spacecraft_id);
+    $result = $apiInstance->spacecraftSpacecraftIdGet($spacecraft_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->spacecraftSpacecraftIdGet: ', $e->getMessage(), PHP_EOL;
@@ -3435,19 +3692,26 @@ Updates the spacecraft and returns the updated spacecraft. Note&amp;#58; this on
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $spacecraft_id = 56; // int | ID of the spacecraft
 $spacecraft = new \Swagger\Client\Model\Spacecraft(); // \Swagger\Client\Model\Spacecraft | The spacecraft JSON you want to update the spacecraft with
 
 try {
-    $result = $api_instance->spacecraftSpacecraftIdPatch($spacecraft_id, $spacecraft);
+    $result = $apiInstance->spacecraftSpacecraftIdPatch($spacecraft_id, $spacecraft);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->spacecraftSpacecraftIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -3490,17 +3754,24 @@ List all teleports
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->teleportGet();
+    $result = $apiInstance->teleportGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->teleportGet: ', $e->getMessage(), PHP_EOL;
@@ -3539,18 +3810,25 @@ Creates the Teleport
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $teleport = new \Swagger\Client\Model\Teleport(); // \Swagger\Client\Model\Teleport | The teleport JSON you want to post
 
 try {
-    $result = $api_instance->teleportPost($teleport);
+    $result = $apiInstance->teleportPost($teleport);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->teleportPost: ', $e->getMessage(), PHP_EOL;
@@ -3592,18 +3870,25 @@ Deletes the teleport with ID = teleportId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $teleport_id = 56; // int | ID of the teleport
 
 try {
-    $api_instance->teleportTeleportIdDelete($teleport_id);
+    $apiInstance->teleportTeleportIdDelete($teleport_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->teleportTeleportIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -3644,18 +3929,25 @@ Returns the teleport with ID = teleportId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $teleport_id = 56; // int | ID of the teleport
 
 try {
-    $result = $api_instance->teleportTeleportIdGet($teleport_id);
+    $result = $apiInstance->teleportTeleportIdGet($teleport_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->teleportTeleportIdGet: ', $e->getMessage(), PHP_EOL;
@@ -3697,19 +3989,26 @@ Updates the teleport and returns the updated teleport. Note&amp;#58; this only r
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $teleport_id = 56; // int | ID of the teleport
 $teleport = new \Swagger\Client\Model\Teleport(); // \Swagger\Client\Model\Teleport | The teleport JSON you want to update the teleport with
 
 try {
-    $result = $api_instance->teleportTeleportIdPatch($teleport_id, $teleport);
+    $result = $apiInstance->teleportTeleportIdPatch($teleport_id, $teleport);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->teleportTeleportIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -3752,17 +4051,24 @@ List all upconverters
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->upconverterGet();
+    $result = $apiInstance->upconverterGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->upconverterGet: ', $e->getMessage(), PHP_EOL;
@@ -3801,18 +4107,25 @@ Creates the UpConverter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $up_converter = new \Swagger\Client\Model\UpConverter(); // \Swagger\Client\Model\UpConverter | The upconverter JSON you want to post
 
 try {
-    $result = $api_instance->upconverterPost($up_converter);
+    $result = $apiInstance->upconverterPost($up_converter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->upconverterPost: ', $e->getMessage(), PHP_EOL;
@@ -3854,18 +4167,25 @@ Deletes the upconverter with ID = upconverterId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $upconverter_id = 56; // int | ID of the upconverter
 
 try {
-    $api_instance->upconverterUpconverterIdDelete($upconverter_id);
+    $apiInstance->upconverterUpconverterIdDelete($upconverter_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->upconverterUpconverterIdDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -3906,18 +4226,25 @@ Returns the upconverter with ID = upconverterId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $upconverter_id = 56; // int | ID of the upconverter
 
 try {
-    $result = $api_instance->upconverterUpconverterIdGet($upconverter_id);
+    $result = $apiInstance->upconverterUpconverterIdGet($upconverter_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->upconverterUpconverterIdGet: ', $e->getMessage(), PHP_EOL;
@@ -3959,19 +4286,26 @@ Updates the upconverter and returns the updated upconverter. Note&amp;#58; this 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $upconverter_id = 56; // int | ID of the upconverter
 $up_converter = new \Swagger\Client\Model\UpConverter(); // \Swagger\Client\Model\UpConverter | The upconverter JSON you want to update the upconverter with
 
 try {
-    $result = $api_instance->upconverterUpconverterIdPatch($upconverter_id, $up_converter);
+    $result = $apiInstance->upconverterUpconverterIdPatch($upconverter_id, $up_converter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->upconverterUpconverterIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -4014,17 +4348,24 @@ List all users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $result = $api_instance->userGet();
+    $result = $apiInstance->userGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->userGet: ', $e->getMessage(), PHP_EOL;
@@ -4063,18 +4404,25 @@ Creates the User
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user = new \Swagger\Client\Model\User(); // \Swagger\Client\Model\User | The user JSON you want to post
 
 try {
-    $result = $api_instance->userPost($user);
+    $result = $apiInstance->userPost($user);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->userPost: ', $e->getMessage(), PHP_EOL;
@@ -4116,18 +4464,25 @@ Returns the user with ID = userId
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | ID of the user
 
 try {
-    $result = $api_instance->userUserIdGet($user_id);
+    $result = $apiInstance->userUserIdGet($user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->userUserIdGet: ', $e->getMessage(), PHP_EOL;
@@ -4169,19 +4524,26 @@ Updates the user and returns the updated user. Note&amp;#58; this only requires 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
-// Configure API key authorization: cookieAuth
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+// Configure API key authorization: cookieAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Session', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Session', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $user_id = 56; // int | ID of the user
 $user = new \Swagger\Client\Model\User(); // \Swagger\Client\Model\User | The user JSON you want to update the user with
 
 try {
-    $result = $api_instance->userUserIdPatch($user_id, $user);
+    $result = $apiInstance->userUserIdPatch($user_id, $user);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->userUserIdPatch: ', $e->getMessage(), PHP_EOL;

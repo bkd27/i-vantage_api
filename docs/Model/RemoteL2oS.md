@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **ethertype1** | **string** |  | [optional] 
 **ethertype2** | **string** |  | [optional] 
 **bfd** | **bool** |  | [optional] 
-**sv_ns** | [**\Swagger\Client\Model\SVN[]**](SVN.md) |  | [optional] 
+**header_compression** | [**\Swagger\Client\Model\RemoteL2oSHeaderCompression**](RemoteL2oSHeaderCompression.md) |  | [optional] 
+**svns** | [**\Swagger\Client\Model\SVN[]**](SVN.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

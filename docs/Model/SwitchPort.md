@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **port_number** | **int** |  | [optional] 
-**vlan_i_ds** | **int[]** |  | [optional] 
+**v_lan_ids** | **int[]** |  | [optional] 
 **auto_negotiation** | **bool** |  | [optional] 
 **speed100_mbps** | **bool** |  | [optional] 
 **full_duplex** | **bool** |  | [optional] 

@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **spectral_inversion** | **string** |  | [optional] 
 **translation_freq** | **double** |  | [optional] 
 **stability** | **double** |  | [optional] 
-**odu_rx_dc_power** | **bool** |  | [optional] 
-**odu_rx10_m_hz** | **bool** |  | [optional] 
+**odurx_dc_power** | **bool** |  | [optional] 
+**odurx10_mhz** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

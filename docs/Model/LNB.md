@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **noise_figure** | **double** |  | [optional] 
 **translation_freq** | **double** |  | [optional] 
 **rx_dc_enable** | **bool** |  | [optional] 
-**rx10_m_hz_enable** | **bool** |  | [optional] 
+**rx10_mhz_enable** | **bool** |  | [optional] 
 **_22_khz_enable** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

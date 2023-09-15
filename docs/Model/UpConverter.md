@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **i_direct_pn** | **string** |  | [optional] 
 **spectral_inversion** | **string** |  | [optional] 
 **translation_freq** | **double** |  | [optional] 
-**odu_tx_dc_power** | **bool** |  | [optional] 
-**odu_tx10_m_hz** | **bool** |  | [optional] 
+**odutx_dc_power** | **bool** |  | [optional] 
+**odutx10_mhz** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
