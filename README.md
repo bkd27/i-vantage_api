@@ -22,12 +22,12 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 {
   "repositories": [
     {
-      "type": "git",
-      "url": "https://github.com//.git"
+      "type": "vcs",
+      "url": "https://github.com/bkd27/i-vantage_api"
     }
   ],
   "require": {
-    "/": "*@dev"
+    "bkd27/i-vantage_api": "2.0.*"
   }
 }
 ```
